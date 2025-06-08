@@ -9,8 +9,6 @@ import { JwtAuthenticationFilter } from 'src/security/JwtAuthentication.filter';
 import { Principal } from 'src/security/Principal.type';
 import { UserContext } from 'src/security/UserContext';
 import { UsernamePasswordAuthentication } from 'src/security/UsernamePasswordAuthentication.filter';
-import { PrismaService } from 'src/service/prisma/prisma.service';
-import { UserService } from 'src/service/User.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

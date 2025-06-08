@@ -23,10 +23,10 @@ export class AuthRequestFilterMiddleware implements NestMiddleware {
     var METHOD = req.method;
     Logger.log(` User request : ${METHOD} ${url}`);
 
-    if (METHOD == 'POST' && (url == 'api/auth/login' || 'api/auth/register')) {
-      //on user authentication.
-      //allow user to login or register without authentication.
-
+    if (
+      METHOD == 'POST' &&
+      (url == '/api/auth/login' || url == '/api/auth/register')
+    ) {
       next();
     } else {
       const authHeader = req.headers.authorization;

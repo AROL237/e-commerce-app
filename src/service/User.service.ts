@@ -22,14 +22,20 @@ export class UserService implements UserServiceInterface, UserDetailInterface {
    * @returns @type Promise<PrismaUser>
    */
   async loadUserDetail(email: string): Promise<PrismaUser> {
-    const user = await this.findByEmail(email);
-
-    return user;
+    // const user = await this.findByEmail(email);
+    return (await this.prisma.user.findUnique({
+      where: {
+        email: email.trim().toLowerCase(),
+      },
+    })) as any;
   }
   async findByEmail(email: string): Promise<any> {
     return await this.prisma.user.findUnique({
       where: {
         email: email.trim().toLowerCase(),
+      },
+      omit: {
+        password: true,
       },
     });
   }
@@ -67,9 +73,7 @@ export class UserService implements UserServiceInterface, UserDetailInterface {
     }
   }
 
-  findAll() {
-    
-  }
+  findAll() {}
 
   async findOne(id: number): Promise<User | null> {
     // Here you would typically fetch the user from the database using the id

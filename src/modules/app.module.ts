@@ -12,9 +12,16 @@ import { AuthGuard } from 'src/gaurd/auth/auth.guard';
 import { AuthProviderModule } from './auth/authProvider.module';
 import { UsernamePasswordAuthentication } from 'src/security/UsernamePasswordAuthentication.filter';
 import { UserService } from 'src/service/User.service';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
-  imports: [PrismaModule, UserModule, AuthProviderModule, ProductModule],
+  imports: [
+    PrismaModule,
+    UserModule,
+    AuthProviderModule,
+    ProductModule,
+    OrdersModule,
+  ],
   providers: [],
 })
 export class AppModule {}

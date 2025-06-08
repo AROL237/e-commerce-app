@@ -5,7 +5,7 @@ import {
   Logger,
   UnauthorizedException,
 } from '@nestjs/common';
-import { Auth } from '../interface/auth/auth.interface';
+import { Auth } from '../interface/auth.interface';
 import { User } from '@prisma/client';
 import { UserService } from 'src/service/User.service';
 import { UserContext } from 'src/security/UserContext';

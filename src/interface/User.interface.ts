@@ -1,5 +1,6 @@
 import { UserDtoRequest } from 'src/dtos/user/UserDtoRequest';
 import { User } from 'src/entities/User.entity';
+import { User as PrismaUser } from '@prisma/client';
 import { nullable } from 'zod';
 
 export interface UserServiceInterface {
